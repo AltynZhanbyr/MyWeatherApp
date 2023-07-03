@@ -1,6 +1,9 @@
 package com.example.myweatherapp.di
 
 import com.example.myweatherapp.data.remote.WeatherApi
+import com.example.myweatherapp.data.repository.WeatherAppRepositoryImpl
+import com.example.myweatherapp.domain.repository.WeatherAppRepository
+import com.example.myweatherapp.domain.use_case.GetCityWeatherUseCase
 import com.example.myweatherapp.utlis.Constants
 import dagger.Module
 import dagger.Provides
@@ -24,4 +27,15 @@ object AppModule {
             .create(WeatherApi::class.java)
     }
 
+    @Provides
+    @Singleton
+    fun provideRepository(weatherApi: WeatherApi):WeatherAppRepository{
+        return WeatherAppRepositoryImpl(weatherApi)
+    }
+
+    @Provides
+    @Singleton
+    fun providesGetCityWeatherUseCase(repository: WeatherAppRepository):GetCityWeatherUseCase{
+        return GetCityWeatherUseCase(repository)
+    }
 }
