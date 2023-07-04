@@ -20,6 +20,9 @@ class MainScreenViewModel @Inject constructor(
     private val _state = mutableStateOf(CityState())
     val state = _state
 
+    private val _inputCityState = mutableStateOf("")
+    val inputCityState = _inputCityState
+
     fun getCityWeather(name:String){
         viewModelScope.launch {
             getCityWeatherUseCase(name).collect {resource ->
@@ -36,5 +39,9 @@ class MainScreenViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun changeCityInputState(name:String){
+        _inputCityState.value = name
     }
 }

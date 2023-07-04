@@ -13,10 +13,8 @@ class WeatherAppRepositoryImpl @Inject constructor(
     private val weatherApi: WeatherApi
     ):WeatherAppRepository {
     override suspend fun getCityWeather(cityName: String): CityWeatherDto {
-        Log.d("LoggigError", cityName)
         return weatherApi.getCityWeather(
-//            Constants.API_KEY,
-//            cityName
+            Constants.API_KEY,cityName,false
         )
     }
 

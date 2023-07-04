@@ -9,11 +9,12 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface WeatherApi {
-    @GET("v1/current.json?key=6230e438bb894960888140340230307&q=London&aqi=no")
+    @GET("v1/current.json")
     suspend fun getCityWeather(
-//        @Query("key") apiKey: String,
-//        @Query("q") cityName: String
-    ):CityWeatherDto
+        @Query("key") apiKey: String,
+        @Query("q") cityName: String,
+        @Query("aqi") aqi: Boolean
+    ): CityWeatherDto
 
     @GET("movie/{id}")
     suspend fun getMovie(@Path("id") id: Int, @Query("api_key") apiKey: String): Movie
