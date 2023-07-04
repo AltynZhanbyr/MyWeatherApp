@@ -102,7 +102,7 @@ fun WeatherComponents(
                                 )
                                 Spacer(modifier = Modifier.height(15.dp))
                                 Text(
-                                    text = cityWeather.current.wind_kph.toString() + "/kph",
+                                    text = cityWeather.current.wind_kph.toString() + " kph",
                                     fontSize = 20.sp,
                                     fontWeight = FontWeight.Bold,
                                 )
