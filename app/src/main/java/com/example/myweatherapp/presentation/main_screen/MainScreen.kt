@@ -61,7 +61,9 @@ fun MainScreen(
         if(state.error.isNotBlank())
             Text(state.error)
         if(state.cityWeather!=null)
-            WeatherComponents(cityWeather = state.cityWeather)
+            WeatherComponents(cityWeather = state.cityWeather){
+                viewModel.getCityWeather(it)
+            }
 
     }
 }
