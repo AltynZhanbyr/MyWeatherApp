@@ -4,6 +4,7 @@ import com.example.myweatherapp.data.dto.CityWeatherDto
 import com.example.myweatherapp.data.dto.Movie
 import com.example.myweatherapp.data.local.entity.LocalCityWeather
 import com.example.myweatherapp.domain.model.CityWeather
+import kotlinx.coroutines.flow.Flow
 
 interface WeatherAppRepository {
     suspend fun getCityWeather(cityName:String): CityWeatherDto
@@ -11,4 +12,5 @@ interface WeatherAppRepository {
     suspend fun getMovieFromDBByName(name:String):LocalCityWeather
     suspend fun saveMoveToDB(localCityWeather: LocalCityWeather)
     suspend fun deleteAllCity()
+    fun getAllLocalCity(): Flow<LocalCityWeather?>
 }

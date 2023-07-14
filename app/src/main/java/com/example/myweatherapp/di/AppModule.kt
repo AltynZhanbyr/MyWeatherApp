@@ -7,6 +7,7 @@ import com.example.myweatherapp.data.remote.WeatherApi
 import com.example.myweatherapp.data.repository.WeatherAppRepositoryImpl
 import com.example.myweatherapp.domain.repository.WeatherAppRepository
 import com.example.myweatherapp.domain.use_case.DeleteAllCityUseCase
+import com.example.myweatherapp.domain.use_case.GetAllLocalCityUseCase
 import com.example.myweatherapp.domain.use_case.GetCityWeatherUseCase
 import com.example.myweatherapp.domain.use_case.GetLocalCityByNameUseCase
 import com.example.myweatherapp.domain.use_case.SaveCityToDBUseCase
@@ -62,6 +63,12 @@ object AppModule {
     @Singleton
     fun provideDeleteAllCityUseCase(repository: WeatherAppRepository):DeleteAllCityUseCase{
         return DeleteAllCityUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetAllLocalCityUseCase(repository: WeatherAppRepository):GetAllLocalCityUseCase{
+        return GetAllLocalCityUseCase(repository)
     }
 
     @Provides

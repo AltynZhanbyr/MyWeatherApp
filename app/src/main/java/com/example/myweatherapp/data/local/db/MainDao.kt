@@ -16,4 +16,7 @@ interface MainDao {
 
     @Query("select * from city_table where :name like cityName")
     suspend fun getCityByName(name: String): LocalCityWeather
+
+    @Query("select * from city_table")
+    fun getAllCity():Flow<LocalCityWeather?>
 }

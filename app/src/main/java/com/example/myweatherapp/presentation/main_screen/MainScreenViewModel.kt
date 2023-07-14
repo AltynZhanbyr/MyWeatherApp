@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.myweatherapp.data.local.entity.LocalCityWeather
 import com.example.myweatherapp.domain.model.CityWeather
 import com.example.myweatherapp.domain.use_case.DeleteAllCityUseCase
+import com.example.myweatherapp.domain.use_case.GetAllLocalCityUseCase
 import com.example.myweatherapp.domain.use_case.GetCityWeatherUseCase
 import com.example.myweatherapp.domain.use_case.GetLocalCityByNameUseCase
 import com.example.myweatherapp.domain.use_case.SaveCityToDBUseCase
@@ -23,7 +24,8 @@ class MainScreenViewModel @Inject constructor(
     private val getCityWeatherUseCase: GetCityWeatherUseCase,
     private val getLocalCityByNameUseCase: GetLocalCityByNameUseCase,
     private val saveCityToDBUseCase: SaveCityToDBUseCase,
-    private val deleteAllCityUseCase: DeleteAllCityUseCase
+    private val deleteAllCityUseCase: DeleteAllCityUseCase,
+    private val getAllCityUseCase: GetAllLocalCityUseCase
 ):ViewModel() {
 
     private val _state = mutableStateOf(CityState())
@@ -31,6 +33,13 @@ class MainScreenViewModel @Inject constructor(
 
     private val _inputCityState = mutableStateOf("")
     val inputCityState = _inputCityState
+
+    init{
+        getAllCityUseCase().onEach {
+            if(it!=null)
+                _state.value = CityState(cityWeather = it)
+        }.launchIn(viewModelScope)
+    }
 
     fun getCityWeather(name:String){
         viewModelScope.launch {

@@ -9,6 +9,7 @@ import com.example.myweatherapp.data.remote.WeatherApi
 import com.example.myweatherapp.domain.model.CityWeather
 import com.example.myweatherapp.domain.repository.WeatherAppRepository
 import com.example.myweatherapp.utlis.Constants
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class WeatherAppRepositoryImpl @Inject constructor(
@@ -38,5 +39,10 @@ class WeatherAppRepositoryImpl @Inject constructor(
     override suspend fun deleteAllCity() {
         val dao = db.getDao()
         dao.deleteAll()
+    }
+
+    override fun getAllLocalCity(): Flow<LocalCityWeather?> {
+        val dao = db.getDao()
+        return dao.getAllCity()
     }
 }
