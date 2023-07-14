@@ -24,11 +24,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myweatherapp.data.local.entity.LocalCityWeather
 import com.example.myweatherapp.domain.model.CityWeather
 
 @Composable
 fun WeatherComponents(
-    cityWeather: CityWeather
+    cityWeather: LocalCityWeather
 ) {
     Card(
         modifier = Modifier
@@ -59,13 +60,13 @@ fun WeatherComponents(
                         horizontalAlignment = Alignment.CenterHorizontally
                     ){
                         Text(
-                            text = cityWeather.current.temp_c.toString() + " C",
+                            text = cityWeather.degreeInCel.toString() + " C",
                             fontSize = 35.sp,
                             fontWeight = FontWeight.Bold,
                         )
                         Spacer(modifier = Modifier.height(25.dp))
                         Text(
-                            text = cityWeather.location.name,
+                            text = cityWeather.cityName,
                             fontSize = 30.sp,
                             fontWeight = FontWeight.Bold,
                         )
@@ -102,7 +103,7 @@ fun WeatherComponents(
                                 )
                                 Spacer(modifier = Modifier.height(15.dp))
                                 Text(
-                                    text = cityWeather.current.wind_kph.toString() + " kph",
+                                    text = cityWeather.windSpeed.toString() + " kph",
                                     fontSize = 20.sp,
                                     fontWeight = FontWeight.Bold,
                                 )
@@ -132,7 +133,7 @@ fun WeatherComponents(
                                 )
                                 Spacer(modifier = Modifier.height(15.dp))
                                 Text(
-                                    text = cityWeather.current.wind_dir,
+                                    text = cityWeather.windDirection,
                                     fontSize = 20.sp,
                                     fontWeight = FontWeight.Bold,
                                 )
@@ -167,7 +168,7 @@ fun WeatherComponents(
                                 )
                                 Spacer(modifier = Modifier.height(15.dp))
                                 Text(
-                                    text = cityWeather.current.feelsLikeCel.toString()+" C",
+                                    text = cityWeather.feelsLikeDegreeInCel.toString()+" C",
                                     fontSize = 20.sp,
                                     fontWeight = FontWeight.Bold,
                                 )
@@ -197,7 +198,7 @@ fun WeatherComponents(
                                 )
                                 Spacer(modifier = Modifier.height(15.dp))
                                 Text(
-                                    text = cityWeather.current.cloud.toString() + "%",
+                                    text = cityWeather.cloudCover.toString() + "%",
                                     fontSize = 20.sp,
                                     fontWeight = FontWeight.Bold,
                                 )
