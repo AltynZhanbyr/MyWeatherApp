@@ -1,7 +1,6 @@
 package com.example.myweatherapp.presentation.main_screen.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,18 +18,15 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myweatherapp.data.local.entity.LocalCityWeather
-import com.example.myweatherapp.domain.model.CityWeather
 
 @Composable
 fun WeatherComponents(
@@ -95,7 +91,7 @@ fun WeatherComponents(
             Spacer(
                 modifier = Modifier.height(10.dp)
             )
-            Column(){
+            Column{
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()

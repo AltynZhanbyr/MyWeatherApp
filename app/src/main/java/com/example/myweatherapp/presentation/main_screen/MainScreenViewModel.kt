@@ -3,7 +3,6 @@ package com.example.myweatherapp.presentation.main_screen
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.myweatherapp.data.local.entity.LocalCityWeather
 import com.example.myweatherapp.domain.model.CityWeather
 import com.example.myweatherapp.domain.use_case.DeleteAllCityUseCase
 import com.example.myweatherapp.domain.use_case.GetAllLocalCityUseCase
@@ -13,7 +12,6 @@ import com.example.myweatherapp.domain.use_case.SaveCityToDBUseCase
 import com.example.myweatherapp.utlis.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
